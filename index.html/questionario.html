@@ -26,12 +26,12 @@
         .navbar {
             background-color: rgba(27, 141, 183, 0.9);
             padding: 15px;
-            text-align: center;
+            display: flex;
+            justify-content: space-around;
         }
 
         .navbar a {
             color: #fff;
-            margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2em;
@@ -50,8 +50,6 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(5px);
-            
         }
 
         h2 {
@@ -75,7 +73,6 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
-        /* Botão */
         button {
             background-color: #1b8db7;
             color: white;
@@ -94,7 +91,6 @@
             transform: scale(1.05);
         }
 
-        /* Resultado com animação */
         #resultado {
             text-align: center;
             margin-top: 30px;
@@ -112,34 +108,21 @@
             opacity: 1;
             transform: scale(1);
         }
-
-        @keyframes destaque {
-            from { box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
-            to { box-shadow: 0 0 30px rgba(0, 0, 0, 1); }
-        }
-
-        #resultado h3 {
-            color: #8e44ad;
-            font-size: 2.5em;
-        }
-
-        #resultado p {
-            font-size: 1.5em;
-        }
     </style>
 </head>
 <body>
 
-    <div class="navbar">
+    <nav class="navbar">
         <a href="index.html">Início</a>
-        <a href="sobre.html">Sobre</a>
+        <a href="sugestao.html">Sugestão</a>
         <a href="servico.html">Serviços</a>
-        <a href="questionarios.html">Questionários</a>
+        <a href="questionario.html">Questionário</a>
         <a href="contato.html">Contato</a>
-    </div>
+    </nav>
 
     <form id="questionario">
         <h2>Questionário sobre Autismo (M-CHAT)</h2>
+        <!-- Exemplo de Pergunta -->
         <div class="pergunta-container">
             <label for="pergunta1">1. A criança demonstra interesse em brincar com outros, como correr ou brincar de esconde-esconde?</label>
             <input type="radio" id="sim1" name="pergunta1" value="sim">
@@ -299,9 +282,6 @@
             <input type="radio" id="nao20" name="pergunta20" value="nao">
             <label for="nao20">Não</label>
         </div>
-        
-        <!-- Perguntas continuam como no exemplo anterior -->
-
         <button type="button" onclick="calcularResultado()">Enviar Respostas</button>
     </form>
 
@@ -327,17 +307,14 @@
             } else if (percentualRisco >= 50) {
                 mensagem = "⚠️ Risco moderado de autismo. Observe e procure orientação médica se necessário.";
             } else {
-                mensagem = "✅ Baixo risco de autismo. Continue observando o desenvolvimento da criança.";
+                mensagem = "✅ Baixo risco de autismo.";
             }
 
             const resultadoDiv = document.getElementById("resultado");
             resultadoDiv.innerHTML = `
-                <div>
-                    <h3>Resultado</h3>
-                    <p>${mensagem}</p>
-                    <p>Percentual de Risco: ${percentualRisco.toFixed(2)}%</p>
-                </div>`;
-            
+                <h3>Resultado</h3>
+                <p>${mensagem}</p>
+                <p>Percentual de Risco: ${percentualRisco.toFixed(2)}%</p>`;
             resultadoDiv.classList.add("mostrar");
         }
     </script>
