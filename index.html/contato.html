@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato</title>
     <style>
-        /* Cores da nova paleta */
+        /* Paleta de Cores */
         .color1 { background-color: #1b8db7; }
         .color2 { background-color: #3aa6c9; }
         .color3 { background-color: #59bfdb; }
@@ -16,7 +16,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: url('img/tttt.webp') no-repeat center center fixed; /* Imagem de fundo */
+            background: url('img/tttt.webp') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
         }
@@ -35,11 +35,13 @@
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav ul li {
-            display: inline;
-            margin: 0 1em;
+            margin: 0.5em;
         }
 
         nav ul li a {
@@ -56,32 +58,22 @@
         .contact {
             background-color: rgba(58, 166, 201, 0.8);
             padding: 2em;
-            margin: 6em auto 2em;
+            margin: 8em auto 2em;
             max-width: 800px;
             border-radius: 12px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1s ease-in-out;
             backdrop-filter: blur(10px);
         }
 
         .contact h1 {
             color: #96f0ff;
             animation: glow 1.5s infinite alternate;
-        }
-
-        .contact p {
-            color: #ccc;
-            margin-bottom: 1em;
+            text-align: center;
         }
 
         form {
             display: grid;
             gap: 1em;
-            animation: slideIn 1s forwards;
-        }
-
-        label {
-            font-weight: bold;
         }
 
         input, textarea {
@@ -91,7 +83,6 @@
             border-radius: 6px;
             background-color: rgba(255, 255, 255, 0.1);
             color: #fff;
-            transition: all 0.3s;
         }
 
         input:focus, textarea:focus {
@@ -101,7 +92,7 @@
 
         button {
             background-color: #59bfdb;
-            color: #fff;
+            color: white;
             border: none;
             padding: 1em;
             border-radius: 6px;
@@ -121,18 +112,6 @@
             position: fixed;
             width: 100%;
             bottom: 0;
-            z-index: 10;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         @keyframes glow {
@@ -144,14 +123,38 @@
             }
         }
 
-        @keyframes slideIn {
-            from {
-                transform: translateX(-100%);
-                opacity: 0;
+        /* Media Queries para Responsividade */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
             }
-            to {
-                transform: translateX(0);
-                opacity: 1;
+
+            .contact {
+                margin: 6em 1em 2em;
+            }
+
+            input, textarea {
+                font-size: 16px;
+            }
+
+            button {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact h1 {
+                font-size: 24px;
+            }
+
+            input, textarea {
+                padding: 0.5em;
+            }
+
+            button {
+                width: 100%;
+                padding: 0.75em;
             }
         }
     </style>

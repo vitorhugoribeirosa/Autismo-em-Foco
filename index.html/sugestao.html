@@ -48,7 +48,7 @@
         /* Seções */
         .section {
             max-width: 900px;
-            margin: 50px auto;
+            margin: 70px auto 20px;
             padding: 30px;
             border-radius: 10px;
             background: rgba(89, 191, 219, 0.7);
@@ -127,6 +127,49 @@
 
         .footer a:hover {
             text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .navbar a {
+                margin: 10px 0;
+            }
+
+            .section {
+                margin: 90px 10px 20px;
+                padding: 20px;
+            }
+
+            input, textarea {
+                font-size: 1em;
+                padding: 10px;
+            }
+
+            input[type="submit"] {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar a {
+                font-size: 1em;
+            }
+
+            input, textarea {
+                padding: 8px;
+            }
+
+            input[type="submit"] {
+                width: 100%;
+                padding: 12px;
+                font-size: 0.9em;
+            }
         }
     </style>
 </head>

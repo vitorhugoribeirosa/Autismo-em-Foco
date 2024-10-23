@@ -148,6 +148,42 @@
                 transform: translateX(0);
             }
         }
+
+        /* Media Queries para Responsividade */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            #start-btn {
+                padding: 10px 20px;
+                font-size: 18px;
+            }
+
+            .menu ul {
+                flex-direction: column;
+            }
+
+            .menu ul li {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .content {
+                padding: 0 20px;
+            }
+
+            #start-btn {
+                width: 100%;
+                padding: 15px;
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>

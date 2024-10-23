@@ -25,24 +25,24 @@
         .color2 { background-color: rgba(58, 166, 201, 0.7); }
         .color3 { background-color: rgba(89, 191, 219, 0.7); }
         .color4 { background-color: rgba(119, 215, 237, 0.7); }
-        .color5 { color: rgba(0, 0, 0, 0.8); } /* Texto preto com leve transparência */
+        .color5 { color: rgba(0, 0, 0, 0.8); }
 
         /* Navbar */
         .navbar {
             width: 100%;
             background-color: rgba(27, 141, 183, 0.9);
-            padding: 20px 0;
+            padding: 15px 0;
             position: fixed;
             top: 0;
             z-index: 1000;
             display: flex;
             justify-content: center;
-            animation: slideDown 0.8s ease-out;
+            flex-wrap: wrap;
         }
 
         .navbar a {
-            margin: 0 15px;
-            color:white; /* Texto preto */
+            margin: 10px 15px;
+            color: white;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2em;
@@ -53,16 +53,11 @@
             color: #FFEB3B;
         }
 
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-
         /* Seções */
         .section {
             padding: 50px 20px;
             text-align: center;
-            margin: 20px;
+            margin: 80px 20px 20px;
             border-radius: 15px;
             transition: all 0.4s ease;
         }
@@ -76,8 +71,8 @@
         /* Banner */
         .banner {
             background-color: rgba(119, 215, 237, 0.8);
-            color: black; /* Texto preto */
-            padding: 100px 20px;
+            color: black;
+            padding: 80px 20px;
             margin-top: 60px;
             border-radius: 0 0 30px 30px;
             animation: float 5s infinite ease-in-out;
@@ -109,6 +104,41 @@
 
         .footer a:hover {
             text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .navbar a {
+                margin: 10px 0;
+            }
+
+            .section {
+                margin: 90px 10px 20px;
+                padding: 30px;
+            }
+
+            .banner {
+                padding: 60px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar a {
+                font-size: 1em;
+            }
+
+            .banner {
+                padding: 40px 10px;
+            }
+
+            .section {
+                padding: 20px;
+                margin: 70px 10px;
+            }
         }
     </style>
 </head>

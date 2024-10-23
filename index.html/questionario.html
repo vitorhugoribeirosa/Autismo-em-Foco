@@ -21,6 +21,7 @@
             padding: 15px;
             display: flex;
             justify-content: space-around;
+            flex-wrap: wrap;
         }
 
         .navbar a {
@@ -28,6 +29,7 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2em;
+            margin: 5px 10px;
             transition: color 0.3s ease;
         }
 
@@ -39,13 +41,13 @@
             min-height: calc(100vh - 60px); /* Altura mínima do formulário ajustada */
             max-width: 900px;
             margin: auto;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 20px;
         }
 
         h2 {
@@ -56,10 +58,10 @@
 
         .pergunta-container {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            gap: 10px;
             background-color: #59bfdb;
-            margin-bottom: 15px;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             transition: transform 0.3s ease;
         }
@@ -96,12 +98,44 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             opacity: 0;
             transform: scale(0.8);
-            transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.5s;
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         #resultado.mostrar {
             opacity: 1;
             transform: scale(1);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar a {
+                margin: 5px 0;
+            }
+
+            form {
+                width: 90%;
+                padding: 15px;
+            }
+
+            button {
+                width: 100%;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar a {
+                font-size: 1em;
+            }
+
+            .pergunta-container {
+                gap: 5px;
+                padding: 10px;
+            }
         }
     </style>
 </head>
@@ -116,11 +150,10 @@
     </nav>
 
     <form id="questionario">
+        <h2>Questionário sobre Autismo (M-CHAT)</h2>
 
-        <form id="questionario">
-            <h2>Questionário sobre Autismo (M-CHAT)</h2>
-            <!-- Exemplo de Pergunta -->
-            <div class="pergunta-container">
+        <!-- Exemplo de Perguntas -->
+        div class="pergunta-container">
                 <label for="pergunta1">1. A criança demonstra interesse em brincar com outros, como correr ou brincar de esconde-esconde?</label>
                 <input type="radio" id="sim1" name="pergunta1" value="sim">
                 <label for="sim1">Sim</label>
@@ -281,6 +314,7 @@
             </div>
 
 
+
         <button type="button" onclick="calcularResultado()">Enviar Respostas</button>
     </form>
 
@@ -289,7 +323,7 @@
     <script>
         function calcularResultado() {
             let respostasNao = 0;
-            const totalPerguntas = 20;
+            const totalPerguntas = 2;
 
             for (let i = 1; i <= totalPerguntas; i++) {
                 const resposta = document.querySelector(`input[name="pergunta${i}"]:checked`);
@@ -304,13 +338,13 @@
 
             if (percentualRisco >= 75) {
                 mensagem = "⚠️ Alto risco de autismo. Recomendamos procurar um especialista.";
-                corFundo = "#FF6347"; // Vermelho
+                corFundo = "#FF6347";
             } else if (percentualRisco >= 50) {
-                mensagem = "⚠️ Risco moderado de autismo. Observe e procure orientação médica se necessário.";
-                corFundo = "#FFD700"; // Amarelo
+                mensagem = "⚠️ Risco moderado. Observe e procure orientação médica.";
+                corFundo = "#FFD700";
             } else {
                 mensagem = "✅ Baixo risco de autismo.";
-                corFundo = "#32CD32"; // Verde
+                corFundo = "#32CD32";
             }
 
             const resultadoDiv = document.getElementById("resultado");
